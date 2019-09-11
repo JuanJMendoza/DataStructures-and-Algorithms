@@ -1,6 +1,4 @@
-package com.company;
-
-import java.lang.reflect.Array;
+package BigO;
 
 public class BigO{
 

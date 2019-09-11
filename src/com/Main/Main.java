@@ -1,4 +1,6 @@
-package com.company;
+package com.Main;
+
+import Arrays.Array;
 
 public class Main {
     public static void main(String[] args){

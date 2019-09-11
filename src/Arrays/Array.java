@@ -1,4 +1,4 @@
-package com.company;
+package Arrays;
 
 public class Array {
     //private container to store numbers.
