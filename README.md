@@ -6,7 +6,7 @@ Ultimate Data Structures and Algorithms course where he goes over data structure
 data structure from scratch, along with method doc strings for us to create methods from.</em> 
 
 ## int Array Class & Methods
-***September 11th, 2019***
+***September 11th - 12th, 2019***
 
 Finished building an Array class from scratch with the following methods: 
 
