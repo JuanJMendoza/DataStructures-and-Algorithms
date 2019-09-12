@@ -2,8 +2,21 @@ package com.Main;
 
 import Arrays.Array;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args){
+        ArrayList<Integer> ints = new ArrayList<>();
+        ints.add(3);//append to back of AL
+        ints.add(0,13);//append at a certain index in AL
+        ints.add(5);
+        ints.remove(0);//remove from certain index in AL.
+        ints.remove((Object)5);//remove first instance of object.
+        ints.indexOf(5);//returns index of first occurrence of certain object.
+        ints.lastIndexOf(5);//returns index of last occurrence of certain object.
+        ints.size();//returns the number of items.
+        ints.toArray();//converts AL to Array.
+
         Array numbers = new Array(5);
         numbers.print();
 
