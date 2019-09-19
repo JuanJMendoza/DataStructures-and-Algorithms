@@ -2,6 +2,7 @@ package LinkedLists;
 
 
 import java.lang.reflect.Constructor;
+import java.util.NoSuchElementException;
 
 public class LinkedList {
     // Inner Node class
@@ -16,6 +17,8 @@ public class LinkedList {
         public Node(int data){
             this.value = data;
         }
+
+
     }
 
     // Reference to the head of the Linked List.
@@ -100,7 +103,7 @@ public class LinkedList {
     public void deleteFirst(){
         if(isEmpty()){
             // If LL is empty throw exception.
-            throw new IllegalArgumentException();
+            throw new NoSuchElementException();
         }
         // If LL has only one node make both head and tail null.
         else if(count == 1) {
@@ -128,7 +131,7 @@ public class LinkedList {
     public void deleteLast(){
         if(isEmpty()){
             // If LL is empty throw exception.
-            throw new IllegalArgumentException();
+            throw new NoSuchElementException();
         }
         else if(count == 1){
             // If LL has only one node make both head and tail null.
@@ -247,6 +250,10 @@ public class LinkedList {
         // return false if indexOf(val) returns -1 meaning it doesn't exist in our linked list.
         return false;
     }
+
+    public void print(){}
+
+    public void reverse(){}
 }
 
 
