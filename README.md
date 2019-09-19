@@ -114,14 +114,14 @@ public boolean isEmpty();
 ```java
 public void deleteFirst();
 ```
-> Deletes the first node in the linked list if the linked list isn't empty, otherwise throws an IllegalArgumentException().
+> Deletes the first node in the linked list if the linked list isn't empty, otherwise throws an NoSuchElementException().
 <br>
 <br>
 
 ```java
 public void deleteLast();
 ```
-> Deletes the last node in the linked list if the linked list isn't empty, otherwise throws an IllegalArgumentException().
+> Deletes the last node in the linked list if the linked list isn't empty, otherwise throws an NoSuchElementException().
 <br>
 <br> 
 
