@@ -159,16 +159,94 @@ public class LinkedList {
 
 
     /**
+     * @param val is the value's index we're looking for in our Linked List to remove.
+     */
+    public void remove(int val){
+        // pointer traversing through the linked list.
+        Node traverse = first;
+        // reference to point to the Node behind the traversing Node.
+        Node prev = traverse;
+
+        // while we're still pointing to a valid node.
+        while (traverse != null){
+            // if the current node's value doesn't equal val we continue traversing.
+            if (traverse.value != val){
+                // make prev point to the current node we're at with traverse.
+                prev = traverse;
+                // make traverse point to the next node in the linked list.
+                traverse = traverse.next;
+            }
+            else{
+                /*
+                 when we find the node who's value matches val, we make the node prev is
+                 currently pointing to's next to point to the node traverse's next is pointing
+                 to.
+                 */
+                prev.next = traverse.next;
+                // we then make traverse's next point to null.
+                traverse.next = null;
+                /*
+                 then we make  traverse point to null to allow garbage collection take
+                 the rouge Node.
+                 */
+                traverse = null;
+
+            }
+        }
+
+    }
+
+
+    /**
      * @param val is the value's index we're looking for in our Linked List.
      * @return returns the first instance of val's correspoinding index in out Linked List,
      * returns -1 if val is not in out Linked list.
      */
     public int indexOf(int val){
+        // if the current node's value doesn't equal val we continue traversing.
+        Node traverse = first;
+        // index we're going to return which corresponds to where the node holding val is in the LL.
+        int index = 0;
 
-
+        // while we're still pointing to a valid node.
+        while(traverse != null){
+            // if the current node's value doesn't equal val we continue traversing.
+            if(traverse.value != val){
+                // make traverse point to the next node.
+                traverse = traverse.next;
+                // we increment index.
+                ++index;
+            }
+            else{
+                // if we find val, we return index.
+                return index;
+            }
+        }
+        // return -1 if we exit out the while loop without having found the node holding val.
         return -1;
     }
 
+
+    /**
+     * @return the # of nodes in the Linked List.
+     */
+    public int size(){
+        return count;
+    }
+
+
+    /**
+     * @param val is the value we're looking for in our linked list.
+     * @return true if val exists in our linked list, return false if otherwise.
+     */
+    public boolean contains(int val){
+        // if indexOf(val) returns a valid index, return true because it exists.
+        if(indexOf(val) != -1){
+            return true;
+        }
+        // return false if indexOf(val) returns -1 meaning it doesn't exist in our linked list.
+        return false;
+    }
 }
 
 

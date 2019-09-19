@@ -121,6 +121,16 @@ public class Main {
         //        System.out.println(linkedList.toString().toCharArray());
         linkedList.deleteFirst();
         linkedList.deleteLast();
+        System.out.println(linkedList.indexOf(1));
+        System.out.println(linkedList.indexOf(3));
+        System.out.println(linkedList.indexOf(5));
+        System.out.println(linkedList.indexOf(13));
+        linkedList.remove(3);
+        System.out.println(linkedList.indexOf(1));
+        System.out.println(linkedList.indexOf(3));
+        System.out.println(linkedList.indexOf(5));
+
+
 
     }
 }
