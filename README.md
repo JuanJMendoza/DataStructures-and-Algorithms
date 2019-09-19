@@ -65,3 +65,70 @@ public void reverse();
 public void insertAt(int item, int index);
 ```
 > Insert an item at a given index.
+
+
+## Linked List Class & Methods
+***September 13th - 19th, 2019***
+
+Finished building a Linked list class from scratch with the following methods: 
+
+```java 
+public void addFirst(int val);
+```
+ > Adds a new Node containing val as its value at the front of the linked list.
+ <br>
+ <br>
+ 
+```java
+public void addLast(int val);
+```
+> Adds a new Node containing val as its value at the back of the linked list.
+<br>
+<br>
+ 
+```java
+public boolean isEmpty();
+```
+> Returns true if the linked list is empty, otherwise returns false.
+<br>
+<br>
+
+```java
+public void deleteFirst();
+```
+> Deletes the first node in the linked list if the linked list isn't empty, otherwise throws an IllegalArgumentException().
+<br>
+<br>
+
+```java
+public void deleteLast();
+```
+> Deletes the last node in the linked list if the linked list isn't empty, otherwise throws an IllegalArgumentException().
+<br>
+<br> 
+
+```java
+public void remove(int val);
+```
+> Removes the first instance of a Node that contains val as its value.
+<br>
+<br> 
+
+```java
+public int indexOf(int val);
+```
+> Returns the index at which the Node containing val as its value is at in the linked list.
+<br>
+<br> 
+
+```java
+public int size();
+```
+> Returns the number of Nodes in our linked list.
+<br>
+<br> 
+
+```java
+public boolean contains(int val);
+```
+> Returns true if the linked list contains a Node which contains val as its value.
