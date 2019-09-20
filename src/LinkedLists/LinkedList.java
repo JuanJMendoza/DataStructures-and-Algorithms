@@ -139,24 +139,30 @@ public class LinkedList {
             last = null;
         }
         else{
-            // Make temp node to hold the upcoming new head.
-            Node traverse = first;
-
-            // Traverse through LL until we get to second to last node.
-            while (traverse.next != null){
-                traverse = traverse.next;
-
-                // When we get to second to last node we swap tail to point to traverse, and null out traverse.
-                if(traverse.next.next == null){
-                    last = traverse;
-                    last.next = null;
-                    // Make temp point to null so garbage collection can free memory up.
-                    traverse = null;
-                    // Decrement count of nodes in LL.
-                    --count;
-                    break;
-                }
-            }
+//            // Make temp node to hold the upcoming new head.
+//            Node traverse = first;
+//
+//            // Traverse through LL until we get to second to last node.
+//            while (traverse.next != null){
+//                traverse = traverse.next;
+//
+//                // When we get to second to last node we swap tail to point to traverse, and null out traverse.
+//                if(traverse.next.next == null){
+//                    last = traverse;
+//                    last.next = null;
+//                    // Make temp point to null so garbage collection can free memory up.
+//                    traverse = null;
+//                    // Decrement count of nodes in LL.
+//                    --count;
+//                    break;
+//                }
+//            }
+            // previous holds the previous node to the node passed into getPrevious.
+            Node previous = getPrevious(last);
+            // point last to previous to make it the new tail.
+            last = previous;
+            // make last's next null so garbage collection can take care of the node we want to delete.
+            last.next = null;
         }
     }
 
@@ -249,6 +255,25 @@ public class LinkedList {
         }
         // return false if indexOf(val) returns -1 meaning it doesn't exist in our linked list.
         return false;
+    }
+
+
+    /**
+     * @param node
+     * @return returns the node before the node being passed in.
+     */
+    private Node getPrevious(Node node){
+        if(first == null || first.next == null){
+            return null;
+        }
+        Node current = first;
+        while(current != null){
+            if(current.next == node){
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
     }
 
     public void print(){}
