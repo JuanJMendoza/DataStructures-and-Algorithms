@@ -308,7 +308,22 @@ public class LinkedList {
     }
     public void print(){}
 
-    public void reverse(){}
+    public void reverse(){
+        if(isEmpty()){
+            // If LL is empty throw exception.
+            throw new NoSuchElementException();
+        }
+        Node current = first;
+        Node prev = null;
+        Node next;
+        while (current != null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        first = prev;
+    }
 }
 
 

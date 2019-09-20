@@ -132,6 +132,9 @@ public class Main {
         System.out.println(linkedList.indexOf(5));
         int[] llArr = linkedList.toArray();
         System.out.println(Arrays.toString(llArr));
+        linkedList.reverse();
+        int[] reversedLL = linkedList.toArray();
+        System.out.println(Arrays.toString(reversedLL));
 
 
 
