@@ -119,9 +119,9 @@ public class LinkedList {
             first = temp;
             // Make temp point to null so garbage collection can free memory up.
             temp = null;
-            // Decrement count of nodes in LL.
-            --count;
         }
+        // Decrement count of nodes in LL.
+        --count;
     }
 
 
@@ -164,6 +164,8 @@ public class LinkedList {
             // make last's next null so garbage collection can take care of the node we want to delete.
             last.next = null;
         }
+        // Decrement count of nodes in LL.
+        --count;
     }
 
 
@@ -171,6 +173,15 @@ public class LinkedList {
      * @param val is the value's index we're looking for in our Linked List to remove.
      */
     public void remove(int val){
+        if(isEmpty()){
+            // If LL is empty throw exception.
+            throw new NoSuchElementException();
+        }
+        else if(count == 1){
+            // If LL has only one node make both head and tail null.
+            first = null;
+            last = null;
+        }
         // pointer traversing through the linked list.
         Node traverse = first;
         // reference to point to the Node behind the traversing Node.
@@ -202,7 +213,8 @@ public class LinkedList {
 
             }
         }
-
+        // Decrement count of nodes in LL.
+        --count;
     }
 
 
@@ -276,6 +288,24 @@ public class LinkedList {
         return null;
     }
 
+    public int[] toArray(){
+        if(isEmpty()){
+            // If LL is empty throw exception.
+            throw new NoSuchElementException();
+        }
+        int[] arr = new int[count];
+
+        Node current = first;
+        int i = 0;
+        while (current != null){
+            arr[i] = current.value;
+            current = current.next;
+            ++i;
+        }
+        return arr;
+
+
+    }
     public void print(){}
 
     public void reverse(){}

@@ -3,6 +3,7 @@ package com.Main;
 import Arrays.Array;
 import LinkedLists.LinkedList;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args){
@@ -129,6 +130,8 @@ public class Main {
         System.out.println(linkedList.indexOf(1));
         System.out.println(linkedList.indexOf(3));
         System.out.println(linkedList.indexOf(5));
+        int[] llArr = linkedList.toArray();
+        System.out.println(Arrays.toString(llArr));
 
 
 
