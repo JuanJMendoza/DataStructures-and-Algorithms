@@ -302,8 +302,11 @@ public class LinkedList {
 
 
     }
-    public void print(){}
 
+
+    /**
+     * Reverses linked list makes tail the new head, and the previous head the new tail.
+     */
     public void reverse(){
         if(isEmpty()) return;
 
@@ -319,6 +322,11 @@ public class LinkedList {
         last = first;
         first = prev;
     }
+
+
+
+    public void print(){}
+
 }
 
 
