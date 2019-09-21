@@ -289,10 +289,6 @@ public class LinkedList {
     }
 
     public int[] toArray(){
-        if(isEmpty()){
-            // If LL is empty throw exception.
-            throw new NoSuchElementException();
-        }
         int[] arr = new int[count];
 
         Node current = first;
@@ -309,10 +305,8 @@ public class LinkedList {
     public void print(){}
 
     public void reverse(){
-        if(isEmpty()){
-            // If LL is empty throw exception.
-            throw new NoSuchElementException();
-        }
+        if(isEmpty()) return;
+
         Node current = first;
         Node prev = null;
         Node next;
@@ -322,6 +316,7 @@ public class LinkedList {
             prev = current;
             current = next;
         }
+        last = first;
         first = prev;
     }
 }

@@ -130,6 +130,8 @@ public class Main {
         System.out.println(linkedList.indexOf(1));
         System.out.println(linkedList.indexOf(3));
         System.out.println(linkedList.indexOf(5));
+        linkedList.deleteLast();
+        linkedList.deleteFirst();
         int[] llArr = linkedList.toArray();
         System.out.println(Arrays.toString(llArr));
         linkedList.reverse();
