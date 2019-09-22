@@ -324,6 +324,28 @@ public class LinkedList {
     }
 
 
+    public int getKthNodeFromTheEnd(int k){
+        if(isEmpty() || count < k || k < 1){
+            // If LL is empty throw exception.
+            throw new NoSuchElementException();
+        }
+        Node detectTail = first;
+        Node kthNodeFromEnd = first;
+
+        int i = 1;
+
+        while(detectTail != last){
+            detectTail = detectTail.next;
+            if(i >= k){
+                kthNodeFromEnd = kthNodeFromEnd.next;
+            }
+            ++i;
+        }
+
+        return kthNodeFromEnd.value;
+    }
+
+
 
     public void print(){}
 

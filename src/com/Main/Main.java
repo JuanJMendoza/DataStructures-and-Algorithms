@@ -137,7 +137,22 @@ public class Main {
         linkedList.reverse();
         int[] reversedLL = linkedList.toArray();
         System.out.println(Arrays.toString(reversedLL));
+        System.out.println("------------------------------------------------");
 
+        linkedList.addLast(13);
+        linkedList.addLast(5);
+        linkedList.addLast(3);
+        linkedList.addLast(1);
+        linkedList.addLast(0);
+
+        System.out.println("Original Linked List: " + Arrays.toString(linkedList.toArray()));
+        System.out.printf("The 4th node from the end is : " +  + linkedList.getKthNodeFromTheEnd(4) + "\n");
+        linkedList.reverse();
+        System.out.printf("The 4th node from the end is : " +  + linkedList.getKthNodeFromTheEnd(4) + "\n");
+        llArr = linkedList.toArray();
+        System.out.println("Reversed Linked List: " + Arrays.toString(llArr));
+
+        linkedList.getKthNodeFromTheEnd(2);
 
 
     }
