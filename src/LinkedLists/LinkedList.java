@@ -335,27 +335,32 @@ public class LinkedList {
             throw new IllegalStateException();
         }
         else if(count < k || k < 1){
-            // If LL is empty throw exception.
+            // Validates k.
             throw new IllegalArgumentException();
         }
         Node detectTail = first;
         Node kthNodeFromEnd = first;
 
         int i = 1;
-
         while(detectTail != last){
+            // While detectTail hasn't gotten to the tail continue until we do so.
             detectTail = detectTail.next;
+            // When detectTail gets k-1 nodes away from the head begin traversing kthNodeFromEnd pointer.
             if(i >= k){
                 kthNodeFromEnd = kthNodeFromEnd.next;
             }
+            // increment i to keep track of detectTail being k-1 nodes away from head.
             ++i;
         }
 
+        // return the kth value in the kth node from the tail.
         return kthNodeFromEnd.value;
     }
 
 
-
+    /**
+     * Prints the linked list onto the console.
+     */
     public void print(){
         if(!isEmpty()){
             int[] retArr = this.toArray();
