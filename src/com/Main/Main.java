@@ -154,6 +154,6 @@ public class Main {
 
         linkedList.getKthNodeFromTheEnd(2);
 
-
+        linkedList.print();
     }
 }

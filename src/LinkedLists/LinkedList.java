@@ -2,6 +2,7 @@ package LinkedLists;
 
 
 import java.lang.reflect.Constructor;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class LinkedList {
@@ -355,7 +356,15 @@ public class LinkedList {
 
 
 
-    public void print(){}
+    public void print(){
+        if(!isEmpty()){
+            int[] retArr = this.toArray();
+            System.out.println(Arrays.toString(retArr));
+        }
+        else {
+            System.out.println("Linked List is empty!");
+        }
+    }
 
 }
 
