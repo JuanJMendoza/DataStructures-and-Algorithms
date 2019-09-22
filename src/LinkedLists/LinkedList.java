@@ -324,10 +324,18 @@ public class LinkedList {
     }
 
 
+    /**
+     * @param k is the kth node from the tail in our linked list.
+     * @return returns the kth value from the kth node from the tail from out linked list.
+     */
     public int getKthNodeFromTheEnd(int k){
-        if(isEmpty() || count < k || k < 1){
+        if(isEmpty()){
             // If LL is empty throw exception.
-            throw new NoSuchElementException();
+            throw new IllegalStateException();
+        }
+        else if(count < k || k < 1){
+            // If LL is empty throw exception.
+            throw new IllegalArgumentException();
         }
         Node detectTail = first;
         Node kthNodeFromEnd = first;
