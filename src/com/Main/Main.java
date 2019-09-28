@@ -155,5 +155,10 @@ public class Main {
         linkedList.getKthNodeFromTheEnd(2);
 
         linkedList.print();
+        linkedList.printMiddle();
+        linkedList.addLast(21);
+        linkedList.print();
+        linkedList.printMiddle();
+
     }
 }

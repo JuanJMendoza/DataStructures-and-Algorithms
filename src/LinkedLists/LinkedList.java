@@ -252,9 +252,7 @@ public class LinkedList {
     /**
      * @return the # of nodes in the Linked List.
      */
-    public int size(){
-        return count;
-    }
+    public int size(){ return count; }
 
 
     /**
@@ -272,7 +270,7 @@ public class LinkedList {
 
 
     /**
-     * @param node
+     * @param node is the node the comes after the node we're looking for.
      * @return returns the node before the node being passed in.
      */
     private Node getPrevious(Node node){
@@ -371,6 +369,35 @@ public class LinkedList {
         }
     }
 
+    /**
+     * Prints the middle elements of a linked list.
+     * If the size of the linked list is even, it prints 2 elements.
+     * Otherwise, prints 1 element.
+     */
+    public void printMiddle(){
+        if(isEmpty()){
+            // If LL is empty throw exception.
+            throw new IllegalStateException();
+        }
+
+        Node current = first;
+        int mid = count / 2;
+
+        // if there is an odd number of elements in out linked list.
+        if(count % 2 != 0){
+             for(int i = 0; i < mid; i++){
+                 current = current.next;
+             }
+             System.out.println("The middle element is: " + current.value);
+        }
+
+        else{
+            for(int i = 0; i < mid; i++){
+                current = current.next;
+            }
+            System.out.println("The middle elements are: " + getPrevious(current).value + " and " + current.value);
+        }
+    }
 }
 
 
