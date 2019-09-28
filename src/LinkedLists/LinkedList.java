@@ -398,8 +398,46 @@ public class LinkedList {
             System.out.println("The middle elements are: " + getPrevious(current).value + " and " + current.value);
         }
     }
+
+    /**
+     * @return true if linked list contains a loop, else returns false.
+     */
+    public boolean hasLoop(){
+        Node slow = first;
+        Node fast = first;
+        // if there is no loop in the linked list, at the speed fast is going, depending on
+        // whether the linked list is odd or even sized, fast or fast.next will == null
+        // thereby halting the while loop and return false.
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            // if there is a loop, fast will catch up to slow and we will return true.
+            if(fast == slow){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     * @return a linked list that contains a loop.
+     */
+    public static LinkedList createWithLoop(){
+        var list = new LinkedList();
+        list.addLast(32);
+        list.addLast(4);
+        list.addLast(1);
+
+        // get reference to a node in the middle
+        var node = list.last;
+
+        list.addLast(7);
+        list.addLast(9);
+
+        // loop tail to mid node.
+        list.last.next = node;
+
+        return list;
+    }
 }
-
-
-
-

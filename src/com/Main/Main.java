@@ -160,5 +160,16 @@ public class Main {
         linkedList.print();
         linkedList.printMiddle();
 
+        System.out.println("------------------------------------------------");
+        LinkedList linkedList2 = new LinkedList();
+        linkedList2.addLast(13);
+        linkedList2.addLast(5);
+        linkedList2.addLast(3);
+        linkedList2.addLast(1);
+        linkedList2.hasLoop();
+        LinkedList loopedLinkedList = LinkedList.createWithLoop();
+        loopedLinkedList.hasLoop();
+
+
     }
 }
