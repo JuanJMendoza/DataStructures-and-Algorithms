@@ -1,4 +1,4 @@
-# UltimateDataStructures-Algorithms
+# DataStructures-and-Algorithms
 #### Data Structures Exercises
 
 <em> To help me better understand data structures, I've build a few from scratch from given exercise prompts from [@mosh-hamedani](https://github.com/mosh-hamedani)'s
