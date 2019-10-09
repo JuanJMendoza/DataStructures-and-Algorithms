@@ -8,7 +8,10 @@ public class Stack {
     private int count = 0;
 
     public void push(int k){
-            items[count++] = k;
+        if (count == items.length){
+            throw new StackOverflowError();
+        }
+        items[count++] = k;
         }
     public int pop(){
         if(count == 0){
@@ -18,7 +21,10 @@ public class Stack {
     }
 
     public int peek(){
-            return items[count - 1];
+        if(count == 0){
+            throw new IllegalStateException();
+        }
+        return items[count - 1];
         }
 
     public boolean isEmpty(){
