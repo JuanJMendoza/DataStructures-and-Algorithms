@@ -13,6 +13,18 @@ public class Main {
         System.out.println(queue);
         reverse(queue);
         System.out.println(queue);
+
+        //////////ArrayQueue//////////
+        ArrayQueue arrQue = new ArrayQueue(5);
+        arrQue.enqueue(1);
+        arrQue.enqueue(3);
+        arrQue.enqueue(5);
+        arrQue.enqueue(9);
+        arrQue.enqueue(21);
+
+
+        System.out.println(arrQue.toString());
+
     }
 
     public static void reverse(Queue<Integer> queue){
