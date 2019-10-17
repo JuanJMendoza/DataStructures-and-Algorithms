@@ -39,6 +39,20 @@ public class ArrayQueue {
         return item;
     }
 
+    // Shows element at the front of the queue.
+    public int peek(){
+        return backstore[front];
+    }
+
+    // if count == 0 return True, else Return false;
+    public boolean isEmpty(){
+        return count == 0;
+    }
+
+    // if rear == length of back store (n) then rear is out of bounds-- meaning there's no room to enqueue.
+    public boolean isFull(){
+        return rear == backstore.length;
+    }
 
     @Override
     public String toString(){
