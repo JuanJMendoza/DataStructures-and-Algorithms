@@ -1,0 +1,47 @@
+package Queues;
+
+import java.util.Arrays;
+import java.util.Queue;
+
+public class ArrayQueue {
+    //enqueue, dequeue, peek, isEmpty, isFull
+    //Array based
+    private int[] backstore;
+    private int front = 0;
+    private int rear = 0;
+    private int count = 0;
+
+    public ArrayQueue(int capacity){
+        backstore = new int[capacity];
+    }
+
+    public void enqueue(int val){
+        // last element is at index n -1 so if rear == n we're out of bounds-- meaning the backstore is full.
+        if(rear == backstore.length){
+            throw new IllegalStateException();
+        }
+        // assign backstore[rear] the val then increment after execution.
+        backstore[rear] = val;
+        rear = (rear + 1) % backstore.length;
+        count++;
+    }
+
+    public int dequeue(){
+        // if count == 0 than this means the queue is empty and there is nothing to remove.
+        if(count == 0){
+            throw new IllegalStateException();
+        }
+        int item = backstore[front];
+        // assign backstore[front] = 0 and move pointer to the next index.
+        backstore[front] = 0;
+        front = (front + 1) % backstore.length;
+        count--;
+        return item;
+    }
+
+
+    @Override
+    public String toString(){
+        return Arrays.toString(backstore);
+    }
+}
