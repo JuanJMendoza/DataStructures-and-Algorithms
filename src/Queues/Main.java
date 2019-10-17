@@ -21,6 +21,11 @@ public class Main {
         arrQue.enqueue(5);
         arrQue.enqueue(9);
         arrQue.enqueue(21);
+        System.out.println(arrQue.dequeue());
+        System.out.println(arrQue.dequeue());
+
+        arrQue.enqueue(7);
+        arrQue.enqueue(13);
 
 
         System.out.println(arrQue.toString());

@@ -16,8 +16,8 @@ public class ArrayQueue {
     }
 
     public void enqueue(int val){
-        // last element is at index n -1 so if rear == n we're out of bounds-- meaning the backstore is full.
-        if(rear == backstore.length){
+        // if count == backstore.length then we're at our capacity.
+        if(count == backstore.length){
             throw new IllegalStateException();
         }
         // assign backstore[rear] the val then increment after execution.
