@@ -1,12 +1,12 @@
 package Queues;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class StackQueue {
     //enqueue, dequeue, peek, isEmpty, isFull
     private Stack holder = new Stack();
     private Stack reversingMechOutput = new Stack();
-    private int front;
 
 
     public void enqueue(int val){
@@ -15,6 +15,8 @@ public class StackQueue {
 
 
     public int dequeue(){
+        int front;
+
         // if the queue is empty then there is nothing to dequeue and we throw an exception.
         if(holder.isEmpty()){
             throw new IllegalStateException();
@@ -36,6 +38,27 @@ public class StackQueue {
 
         return front;
     }
+
+    // shows the top element in the queue.
+    public int peek(){
+        int peek;
+        // if the queue is empty then there is nothing to peek and we throw an exception.
+        if(holder.isEmpty()){
+            throw new IllegalStateException();
+        }
+
+        while(!holder.isEmpty()){
+            reversingMechOutput.push(holder.pop());
+        }
+
+        peek = (int) reversingMechOutput.peek();
+
+        while(!reversingMechOutput.isEmpty()){
+            holder.push(reversingMechOutput.pop());
+        }
+        return peek;
+    }
+
 
 
 }

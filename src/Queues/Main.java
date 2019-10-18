@@ -14,7 +14,7 @@ public class Main {
         reverse(queue);
         System.out.println(queue);
 
-        //////////ArrayQueue//////////
+        //////////ARRAY QUEUE//////////
         ArrayQueue arrQue = new ArrayQueue(5);
         arrQue.enqueue(1);
         arrQue.enqueue(3);
@@ -29,6 +29,22 @@ public class Main {
 
 
         System.out.println(arrQue.toString());
+
+        /////////////STACK QUEUE/////////////
+        System.out.println("/////////////STACK QUEUE/////////////");
+        StackQueue sq = new StackQueue();
+        sq.enqueue(1);
+        sq.enqueue(3);
+        sq.enqueue(5);
+        sq.enqueue(7);
+        sq.enqueue(9);
+        System.out.println(sq.peek());
+
+//        sq.dequeue();
+//        sq.dequeue();
+//        sq.dequeue();
+//        sq.dequeue();
+//        System.out.println(sq.peek());
 
     }
 
