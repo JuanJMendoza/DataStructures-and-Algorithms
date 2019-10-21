@@ -55,6 +55,7 @@ public class Main {
         pq.add(1);
         pq.add(9);
         pq.add(0);
+        pq.add(13);
         System.out.println(pq.toString());
     }
 

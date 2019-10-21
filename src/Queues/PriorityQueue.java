@@ -15,8 +15,14 @@ public class PriorityQueue {
     }
 
     public void add(int element){
+        // When we've reached capacity of the backstore we double the initial size,
+        //  and keep doubling whenever we reach capacity.
         if (count == backstore.length){
-            // Implement automatic resizing.
+             int[]temp = new int[backstore.length * 2];
+             for(int i = 0; i < backstore.length; i++){
+                 temp[i] = backstore[i];
+             }
+             backstore = temp;
         }
         if (count == 0){
             backstore[0] = element;
