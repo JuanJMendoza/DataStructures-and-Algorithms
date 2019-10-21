@@ -16,7 +16,7 @@ public class StackQueue {
 
     public int dequeue(){
         // if the queue is empty then there is nothing to dequeue and we throw an exception.
-        if(holder.isEmpty()){
+        if(this.isEmpty()){
             throw new IllegalStateException();
         }
 
@@ -28,13 +28,19 @@ public class StackQueue {
     // shows the top element in the queue.
     public int peek(){
         // if the queue is empty then there is nothing to dequeue and we throw an exception.
-        if(holder.isEmpty()){
+        if(this.isEmpty()){
             throw new IllegalStateException();
         }
 
         TransferElementsFromStack1ToStack2();
 
         return reversingMechOutput.peek();
+    }
+
+
+    // returns true if our queue is empty, ow returns false.
+    public boolean isEmpty(){
+        return holder.isEmpty() && reversingMechOutput.isEmpty();
     }
 
     private void TransferElementsFromStack1ToStack2() {
