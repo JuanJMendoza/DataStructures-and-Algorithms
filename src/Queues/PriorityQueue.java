@@ -50,6 +50,21 @@ public class PriorityQueue {
         }
     }
 
+    // return the last element in our queue, i.e the highest element.
+    public int remove(){
+        if(isEmpty()){
+            throw new IllegalStateException();
+        }
+        // we decrement the count and then return the element at that index because count start to count
+        // our elements at 1 and so we need n-1 to get the last element in our backstore.
+        return backstore[--count];
+    }
+
+    // return true if our priority queue is empty, ow returns false.
+    public boolean isEmpty(){
+        return count == 0;
+    }
+
     @Override
     public String toString(){
         return Arrays.toString(backstore);
