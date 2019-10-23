@@ -72,4 +72,24 @@ public class PriorityQueue {
         return Arrays.toString(backstore);
     }
 
+    /////////////EXERCISES/////////////
+    // Ex 1: Given an integer K and a queue of integers, write code to reverse the order
+    //       of the first K elements of the queue.
+    // i.e. Input: Q = [10, 20, 30, 40, 50], K = 3
+    //      Output: Q = [30, 20, 10, 40, 50
+    public void reverseFirstKElements(int k){
+        int i = 0;
+        int j = k - 1;
+        while(i < j){
+            int temp = backstore[i];
+            backstore[i] = backstore[j];
+            backstore[j] = temp;
+            ++i;
+            --j;
+        }
+        System.out.println(toString());
+    }
+
+
+
 }

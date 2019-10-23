@@ -28,7 +28,7 @@ public class Main {
         arrQue.enqueue(13);
 
 
-        System.out.println(arrQue.toString());
+        System.out.println(arrQue.toString() + "\n");
 
         /////////////STACK QUEUE/////////////
         System.out.println("/////////////STACK QUEUE/////////////");
@@ -38,7 +38,7 @@ public class Main {
         sq.enqueue(5);
         sq.enqueue(7);
         sq.enqueue(9);
-        System.out.println(sq.peek());
+        System.out.println(sq.peek() + "\n");
 
 //        sq.dequeue();
 //        sq.dequeue();
@@ -56,7 +56,11 @@ public class Main {
         pq.add(9);
         pq.add(0);
         pq.add(13);
-        System.out.println(pq.toString());
+        System.out.println(pq.toString() + "\n");
+
+        System.out.println("/////////////EXERCISES/////////////");
+        pq.reverseFirstKElements(4);
+
     }
 
     public static void reverse(Queue<Integer> queue){
