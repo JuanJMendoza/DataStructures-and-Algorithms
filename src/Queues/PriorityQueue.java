@@ -17,37 +17,16 @@ public class PriorityQueue {
     public void add(int element){
         // When we've reached capacity of the backstore we double the initial size,
         //  and keep doubling whenever we reach capacity.
-        if (count == backstore.length){
+        if (isFull()){
              int[]temp = new int[backstore.length * 2];
              for(int i = 0; i < backstore.length; i++){
                  temp[i] = backstore[i];
              }
              backstore = temp;
         }
-        if (count == 0){
-            backstore[0] = element;
-            ++count;
-        }
-        else {
-            // we're starting out iteration from the back of the array backstore.
-            int i = count - 1;
-            // while i > -1 b/c when i == 0 we're at the 'last' element, once we pass that we're at -1 and stop.
-            while(i > -1){
-                // if the current element is greater than the element we're trying to insert than we move that current
-                // element up one index and check the next one towards the front.
-                if (backstore[i] > element){
-                    backstore[i + 1] = backstore[i];
-                    --i;
-                }
-                // if the current element is less than or equal to the element we're trying to insert than
-                // we insert the element at the position the previous number was at.
-                else{
-                    break;
-                }
-            }
-            backstore[i + 1] = element;
-            ++count;
-        }
+        var i = shirtItemsToInsert(element);
+        backstore[i] = element;
+        ++count;
     }
 
     // return the last element in our queue, i.e the highest element.
@@ -60,9 +39,32 @@ public class PriorityQueue {
         return backstore[--count];
     }
 
-    // return true if our priority queue is empty, ow returns false.
+    public int shirtItemsToInsert(int element){
+        int i;
+        // we're starting out iteration at the index of the first element in the backstore(count - 1).
+        for(i = count - 1; i >= 0; i--){
+            // if the current element is greater than the element we're trying to insert than we move that current
+            // element up one index and check the next one towards the front.
+            if (backstore[i] > element){
+                backstore[i + 1] = backstore[i];
+            }
+            // if the current element is less than or equal to the element we're trying to insert than
+            // we insert the element at the position the previous number was at.
+            else{
+                break;
+            }
+        }
+        return i + 1;
+    }
+
+    // returns true if our priority queue is empty, ow returns false.
     public boolean isEmpty(){
         return count == 0;
+    }
+
+    // returns true if our priority queue is full, ow returns false;
+    public boolean isFull(){
+        return count == backstore.length;
     }
 
     @Override
