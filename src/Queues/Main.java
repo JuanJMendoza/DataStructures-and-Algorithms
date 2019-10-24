@@ -1,6 +1,7 @@
 package Queues;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -60,6 +61,17 @@ public class Main {
 
         System.out.println("/////////////EXERCISES/////////////");
         pq.reverseFirstKElements(4);
+        LinkedListQueue llq = new LinkedListQueue();
+        llq.enqueue(1);
+        llq.enqueue(13);
+        llq.enqueue(7);
+        llq.enqueue(5);
+        llq.enqueue(3);
+        System.out.println(Arrays.toString(llq.toArray()));
+        System.out.println(llq.dequeue());
+        System.out.println(Arrays.toString(llq.toArray()));
+        System.out.println(llq.peek());
+
 
     }
 
