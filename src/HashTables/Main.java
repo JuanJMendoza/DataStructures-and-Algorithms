@@ -10,6 +10,10 @@ public class Main {
 
         System.out.println(finder.firstNonRepeatingCharacter(randS));
 
+        //////////////////////////////////
+        DuplicateFinder dFinder = new DuplicateFinder();
+        System.out.println(dFinder.firstDuplicate(randS));
+
     }
 
 
