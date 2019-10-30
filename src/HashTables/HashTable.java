@@ -74,6 +74,29 @@ public class HashTable {
         return null;
     }
 
+    public void remove(int key){
+        // the linked list in the key's index
+        var bucket = entries[hash(key)];
+
+        // If the bucket is null we throw and illegal state exception.
+        if(bucket == null){
+            throw new IllegalStateException();
+        }
+
+        // we search though the linked list in the bucket.
+        for( var entry : bucket){
+            // if there exists a node with the same key we're looking for return that node's value.
+            // (remember, different keys can be stored in the same bucket, this is we were iterate through it.)
+            if (entry.key == key){
+                // we remove the key from the bucket.
+                bucket.remove(key);
+                // we escape from the method immediately.
+                return;
+            }
+        }
+        // if we get here then the key didn't exist in the bucket & we throw an exception.
+        throw new IllegalStateException();
+    }
 
     // Hash function to convert key into a valid index based on the size of our array store.
     private int hash(int key) {
