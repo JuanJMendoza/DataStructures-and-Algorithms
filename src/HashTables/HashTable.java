@@ -21,7 +21,6 @@ public class HashTable {
         }
     }
 
-    private int count = 0;
 
     private LinkedList<Entry>[] entries = new LinkedList[5];
 
@@ -56,6 +55,25 @@ public class HashTable {
         var entry = new Entry(key, value);
         bucket.addLast(entry);
     }
+
+    public String get(int key){
+        // the linked list in the key's index
+        var bucket = entries[hash(key)];
+
+        if(bucket != null){
+            // we search though the linked list in the bucket.
+            for( var entry : bucket){
+                // if there exists a node with the same key we're looking for return that node's value.
+                // (remember, different keys can be stored in the same bucket, this is we were iterate through it.)
+                if (entry.key == key){
+                    return entry.value;
+                }
+            }
+        }
+        // we return null if no key exists in the bucket.
+        return null;
+    }
+
 
     // Hash function to convert key into a valid index based on the size of our array store.
     private int hash(int key) {
