@@ -24,7 +24,7 @@ public class PriorityQueue {
              }
              backstore = temp;
         }
-        var i = shirtItemsToInsert(element);
+        var i = shiftItemsToInsert(element);
         backstore[i] = element;
         ++count;
     }
@@ -39,7 +39,7 @@ public class PriorityQueue {
         return backstore[--count];
     }
 
-    public int shirtItemsToInsert(int element){
+    public int shiftItemsToInsert(int element){
         int i;
         // we're starting out iteration at the index of the first element in the backstore(count - 1).
         for(i = count - 1; i >= 0; i--){
