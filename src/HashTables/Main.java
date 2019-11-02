@@ -24,6 +24,15 @@ public class Main {
 //        table.remove(6);
         System.out.println(table.get(6));
 
+        ///////////////////////////////////////////////////////
+        System.out.println("////////////Exercises////////////");
+        HashTableExercises sol = new HashTableExercises();
+        int[] ex = {1, 2, 2, 3, 3, 3, 4};
+
+        var output = sol.mostFrequent(ex);
+
+        System.out.println(output);
+
     }
 
 }
