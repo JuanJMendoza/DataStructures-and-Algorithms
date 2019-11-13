@@ -20,7 +20,6 @@ public class Graph {
     private Map<Node, List<Node>> adjacencyList = new HashMap<>();
 
     /**
-     *
      * @param label is a String parameter that addNode takes in and wraps in a Node object which then adds to our map of
      *              nodes and adjacency list, which is implementing a Map as well.
      */
@@ -36,9 +35,27 @@ public class Graph {
         adjacencyList.putIfAbsent(node, new ArrayList<>());
     }
 
-    public void removeNode(String label){
+    /**
+     * @param from is a String parameter, which if it exists in our graph, we want to connect to the node with the to
+     *             label.
+     * @param to is a String parameter, which if it exists in our graph, we want to connect the node with the from
+     *             label to the node with the to label.
+     */
+    public void addEdge(String from, String to){
+        Node fromNode = nodes.get(from);
+        Node toNode = nodes.get(to);
+        if (fromNode == null){
+            throw new IllegalArgumentException();
+        }
+        if (toNode == null){
+            throw new IllegalArgumentException();
+        }
 
+        // Since we made it this far without falling into exceptions both instances are valid.
+        // We're designing a unidirectional graph here, so we'll only add one edge from fromNode to toNode.
+        adjacencyList.get(fromNode).add(toNode);
     }
+
 
 
 }
