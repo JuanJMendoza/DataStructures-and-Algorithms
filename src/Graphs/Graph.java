@@ -12,6 +12,10 @@ public class Graph {
         public Node(String label){
             this.label = label;
         }
+        @Override
+        public String toString(){
+            return label;
+        }
     }
 
     // our structure responsible for keeping track of existing String labels/ nodes in our graph.
@@ -56,6 +60,12 @@ public class Graph {
         adjacencyList.get(fromNode).add(toNode);
     }
 
+    public void print(){
+        for(var source: adjacencyList.keySet()){
+            var target = adjacencyList.get(source);
+            System.out.println(source + " is connected to " + target);
+        }
+    }
 
 
 }
