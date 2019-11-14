@@ -1,9 +1,6 @@
 package Graphs;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Graph {
     private class Node{
@@ -59,6 +56,35 @@ public class Graph {
         // We're designing a unidirectional graph here, so we'll only add one edge from fromNode to toNode.
         adjacencyList.get(fromNode).add(toNode);
     }
+
+    public void removeEdge(String from, String to){
+        Node fromNode = nodes.get(from);
+        Node toNode = nodes.get(to);
+        if(fromNode == null || toNode == null){
+            // we simply return nothing because removing a node that doesn't exist shouldn't cause any side effects.
+            return;
+        }
+        adjacencyList.get(fromNode).remove(toNode);
+    }
+
+    public void removeNode(String label){
+        Node removingNode = nodes.get(label);
+        if (removingNode == null){
+            // we simply return nothing because removing a node that doesn't exist shouldn't cause any side effects.
+            return;
+        }
+
+        // since we're removing the entire node, we need to remove all the edges pointing towards this node.
+        // for each node in out graph (adjacency list) we remove the node from each node. (removing edges to this node.)
+        for (var n: adjacencyList.keySet()){
+            adjacencyList.get(n).remove(removingNode);
+        }
+        // removing the nodes itself from the graph (adjacency list)
+        adjacencyList.remove(removingNode);
+        // removing the node from the list of nodes we're using to keep track of which ones exist in our graph.
+        nodes.remove(removingNode);
+    }
+
 
     public void print(){
         for(var source: adjacencyList.keySet()){
