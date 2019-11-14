@@ -85,6 +85,23 @@ public class Graph {
         nodes.remove(removingNode);
     }
 
+    public void dfs(String root){
+        Node node = nodes.get(root);
+        if (node == null){
+            return;
+        }
+        recursiveDFS(node, new HashSet<>());
+    }
+
+    private void recursiveDFS(Node root, Set<Node> visited){
+        System.out.println(root);
+        visited.add(root);
+        for(var node: adjacencyList.get(root)){
+            if(!visited.contains(root)){
+                recursiveDFS(node, visited);
+            }
+        }
+    }
 
     public void print(){
         for(var source: adjacencyList.keySet()){
