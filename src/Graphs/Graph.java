@@ -85,6 +85,15 @@ public class Graph {
         nodes.remove(removingNode);
     }
 
+    public void print(){
+        for(var source: adjacencyList.keySet()){
+            var target = adjacencyList.get(source);
+            if(!target.isEmpty()){
+                System.out.println(source + " is connected to " + target);
+            }
+        }
+    }
+
     public void dfs(String root){
         Node node = nodes.get(root);
         if (node == null){
@@ -97,16 +106,9 @@ public class Graph {
         System.out.println(root);
         visited.add(root);
         for(var node: adjacencyList.get(root)){
-            if(!visited.contains(root)){
+            if(!visited.contains(node)){
                 recursiveDFS(node, visited);
             }
-        }
-    }
-
-    public void print(){
-        for(var source: adjacencyList.keySet()){
-            var target = adjacencyList.get(source);
-            System.out.println(source + " is connected to " + target);
         }
     }
 
