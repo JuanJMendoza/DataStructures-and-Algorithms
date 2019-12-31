@@ -10,6 +10,10 @@ public class Main {
         tree.insert(5);
         System.out.println("Finished!");
 
+        System.out.println(tree.find(5));
+        System.out.println(tree.find(0));
+        System.out.println(tree.find(21));
+
 
     }
 
