@@ -88,36 +88,26 @@ public class Tree {
      */
     public boolean find(int value){
         Node current = root;
-        // edge case to check if there even exists a node in our tree, if null we return false.
-        if (root == null) {
-            return false;
-        }
 
-        // until we exit from the loop manually from the inside once we've found the node with our corresponding value,
-        // or we reach a leaf which isn't the value we're looking for, we will continue to traverse down the tree.
-        while (true){
+        // until we've found the node with our corresponding value, or we traversed down to a null child,
+        // we will continue to traverse down the tree.
+        while (current != null){
             // if the value we're looking for is less than the current node's value we check if it's left child is valid
             if(value < current.value){
-                // if the current node's left child is null there are no more nodes to check and we return false.
-                if (current.leftChild == null){
-                    return false;
-                }
                 // if there is a left child we make current equal to current node's left child.
                 current = current.leftChild;
             }
             // if the value we're looking for is greater than the current node's value we check if it's right child is valid
             else if (value > current.value){
-                // if the current node's right child is null there are no more nodes to check and we return false.
-                if (current.rightChild == null){
-                    return false;
-                }
                 // if there is a right child we make current equal to current node's right child.
                 current = current.rightChild;
             }
-            else { // if we get to this case, then we've found the node in our tree with the value we were looing for
+            else { // if we get to this case, then we've found the node in our tree with the value we were looking for
                 // and we return true.
                 return true;
             }
         }
+        // we exited the loop b/c we traversed past a leaf to a null child, or the root was null, and return false.
+        return false;
     }
 }
