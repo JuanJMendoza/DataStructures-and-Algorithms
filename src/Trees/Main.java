@@ -14,6 +14,8 @@ public class Main {
         System.out.println(tree.find(0));
         System.out.println(tree.find(21));
 
+        tree.traversePreOrder();
+
 
     }
 
