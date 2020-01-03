@@ -23,6 +23,13 @@ public class Main {
         System.out.println("\nPostOrder Traversal");
         tree.traversePostOrder();
 
+        System.out.println("\nThe height of the Tree is " + tree.height());
+
+        Tree testTree = new Tree();
+        System.out.println("\nThe height of the Tree is " + testTree.height());
+
+        testTree.insert(513);
+        System.out.println("\nThe height of the Tree is " + testTree.height());
     }
 
 }
