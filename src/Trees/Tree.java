@@ -133,4 +133,30 @@ public class Tree {
         // this function calls itself on its right child until we get to the base case.
         traversePreOrder(root.rightChild);
     }
+
+    /**
+     * Recursive method to traverse tree in inOrder traversal(left, root, right).
+     */
+    public void traverseInOrder(){
+        // call to private recursive method.
+        traverseInOrder(root);
+    }
+
+    /**
+     * Recursive method to traverse tree in inOrder traversal(left, root, right).
+     * @param root is the root node of the tree.
+     */
+    private void traverseInOrder(Node root){
+        // Base case: we check to see if we're at a leaf, hence if we go down a leaf's 'child' we will get a null.
+        if (root == null){
+            return;
+        }
+
+        // this function calls itself on its left child until we get to the base case.
+        traverseInOrder(root.leftChild);
+        // print the current node's value on the console.
+        System.out.println(root);
+        // this function calls itself on its right child until we get to the base case.
+        traverseInOrder(root.rightChild);
+    }
 }
