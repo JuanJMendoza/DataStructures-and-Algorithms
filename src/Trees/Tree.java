@@ -185,4 +185,28 @@ public class Tree {
         // print the current node's value on the console.
         System.out.println(root);
     }
+
+    public int height(){
+        // call to private recursive method.
+        return height(root);
+    }
+
+    private int height(Node root){
+        // Base case 1: if root is null return -1.
+        if (root == null) {
+            return -1;
+        }
+        // Base case 2: if both children of current node are null then we are on a leaf, so we return 0.
+        if (root.leftChild == null && root.rightChild == null){
+            return 0;
+        }
+
+        // Recursively call height on both left child and right child. When we get a leaf node of left child, we return
+        // 0 as per base case 2. Then we recursively call height on right child until we get to base case 2. We do this
+        // for both side and once finished for a sub tree, we compare and return the max of either on and add 1. We then
+        // continue until we propogate back to the root of the tree and do it for the right subtree, and continue doing
+        // so until we finally come back to the root of the tree and add 1 to the max of either subtree height, and
+        // return that sum. Formula for height of a tree is 1 + max(height(LeftChild), height(RightChile));
+        return 1 + Math.max(height(root.leftChild), height(root.rightChild));
+    }
 }
