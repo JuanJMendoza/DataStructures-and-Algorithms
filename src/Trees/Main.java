@@ -25,11 +25,21 @@ public class Main {
 
         System.out.println("\nThe height of the Tree is " + tree.height());
 
-        Tree testTree = new Tree();
-        System.out.println("\nThe height of the Tree is " + testTree.height());
+        Tree testBST = new Tree();
+        System.out.println("\nThe height of the Tree is " + testBST.height());
 
-        testTree.insert(513);
-        System.out.println("\nThe height of the Tree is " + testTree.height());
+        testBST.insert(513);
+        System.out.println("\nThe height of the Tree is " + testBST.height());
+        testBST.insert(-32);
+        testBST.insert(0);
+        testBST.insert(2);
+        testBST.insert(32);
+
+        System.out.println("\nThe minimum value of this tree is " + tree.minValue());
+        System.out.println("\nThe height value of this tree is " + testBST.height());
+        System.out.println("\nThe minimum value of this tree is " + testBST.minValueOfBST());
+
+
     }
 
 }
