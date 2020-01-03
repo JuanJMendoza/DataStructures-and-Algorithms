@@ -159,4 +159,30 @@ public class Tree {
         // this function calls itself on its right child until we get to the base case.
         traverseInOrder(root.rightChild);
     }
+
+    /**
+     * Recursive method to traverse tree in postOrder traversal(left, right, root).
+     */
+    public void traversePostOrder(){
+        // call to private recursive method.
+        traversePostOrder(root);
+    }
+
+    /**
+     * Recursive method to traverse tree in postOrder traversal(left, right, root).
+     * @param root is the root node of the tree.
+     */
+    private void traversePostOrder(Node root){
+        // Base case: we check to see if we're at a leaf, hence if we go down a leaf's 'child' we will get a null.
+        if (root == null){
+            return;
+        }
+
+        // this function calls itself on its left child until we get to the base case.
+        traversePostOrder(root.leftChild);
+        // this function calls itself on its right child until we get to the base case.
+        traversePostOrder(root.rightChild);
+        // print the current node's value on the console.
+        System.out.println(root);
+    }
 }
