@@ -209,4 +209,62 @@ public class Tree {
         // return that sum. Formula for height of a tree is 1 + max(height(LeftChild), height(RightChile));
         return 1 + Math.max(height(root.leftChild), height(root.rightChild));
     }
+
+    public int minValue(){
+        // we make a call to the recursive function, minValue.
+        return minValue(root);
+    }
+
+    /**
+     * O(n) because we have to check each node in the tree, and there are n nodes.
+     * @param root is the current node we're on.
+     * @return the min value between the roots left and right subtrees and itself.
+     */
+    private int minValue(Node root) {
+        // if the this current root node is a leaf we return its value.
+        if (isLeaf(root)){
+            return root.value;
+        }
+
+        var left = minValue(root.leftChild);
+        var right = minValue(root.rightChild);
+        // otherwise we return the minimum of both subtrees of the tree's root node and the minimum of those two we use
+        // to compare the smallest between that value and the tree's root value (postOrder - left, right, root), and
+        // return the min of those values.
+        return Math.min(Math.min(left, right), root.value);
+    }
+
+    /**
+     *  O(log n) because we get rid of half the tree's node each pass we make in the loop since we're only trying to
+     *  get to the left most node of the binary search tree.
+     * @return returns the smallest value (left most node) of the tree.
+     */
+    public int minValueOfBST(){
+        // throws an exception if root is null.
+        if (root == null) {
+            throw new IllegalStateException();
+        }
+        // current is a traversing node
+        Node current = root;
+        // last will be the last node current is before taking a null value and having us exit the loop.
+        Node last = current;
+
+        // while current is not null we will continue iterating through the left subtrees
+        while (current != null){
+            // last takes the current value of current before current takes the value of its left subtree node
+            last = current;
+            // current takes the value of its left subtree node
+            current = current.leftChild;
+        }
+        // returns the value if last, the left most node's value.
+        return last.value;
+    }
+
+    /**
+     * @param node is the input node we're checking to see if it is a leaf node.
+     * @return returns a boolean value conveying if the node is a leaf or not.
+     */
+    private boolean isLeaf(Node node){
+        return node.leftChild == null && node.rightChild == null;
+    }
 }
