@@ -39,6 +39,15 @@ public class Main {
         System.out.println("\nThe height value of this tree is " + testBST.height());
         System.out.println("\nThe minimum value of this tree is " + testBST.minValueOfBST());
 
+        Tree tree2 = new Tree();
+        tree2.insert(13);
+        tree2.insert(3);
+        tree2.insert(21);
+        tree2.insert(1);
+        tree2.insert(5);
+
+        Tree tree3 = new Tree();
+        System.out.println("\nEquality of tree and tree2 is: " + tree3.equals(tree));
 
     }
 
