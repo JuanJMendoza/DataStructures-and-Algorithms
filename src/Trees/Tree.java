@@ -80,6 +80,7 @@ public class Tree {
         }
     }
 
+
     /**
      * @param value parameter is the value we're searching for in out Tree.
      * @return returns a boolean which will convey whether the value is found in the Tree or not.
@@ -109,6 +110,7 @@ public class Tree {
         return false;
     }
 
+
     /**
      * Recursive method to traverse tree in preOrder traversal(root, left, right).
      */
@@ -116,6 +118,7 @@ public class Tree {
         // call to private recursive method.
         traversePreOrder(root);
     }
+
 
     /**
      * Recursive method to traverse tree in preOrder traversal(root, left, right).
@@ -134,6 +137,7 @@ public class Tree {
         traversePreOrder(root.rightChild);
     }
 
+
     /**
      * Recursive method to traverse tree in inOrder traversal(left, root, right).
      */
@@ -141,6 +145,7 @@ public class Tree {
         // call to private recursive method.
         traverseInOrder(root);
     }
+
 
     /**
      * Recursive method to traverse tree in inOrder traversal(left, root, right).
@@ -160,6 +165,7 @@ public class Tree {
         traverseInOrder(root.rightChild);
     }
 
+
     /**
      * Recursive method to traverse tree in postOrder traversal(left, right, root).
      */
@@ -167,6 +173,7 @@ public class Tree {
         // call to private recursive method.
         traversePostOrder(root);
     }
+
 
     /**
      * Recursive method to traverse tree in postOrder traversal(left, right, root).
@@ -186,10 +193,12 @@ public class Tree {
         System.out.println(root);
     }
 
+
     public int height(){
         // call to private recursive method.
         return height(root);
     }
+
 
     private int height(Node root){
         // Base case 1: if root is null return -1.
@@ -210,10 +219,12 @@ public class Tree {
         return 1 + Math.max(height(root.leftChild), height(root.rightChild));
     }
 
+
     public int minValue(){
         // we make a call to the recursive function, minValue.
         return minValue(root);
     }
+
 
     /**
      * O(n) because we have to check each node in the tree, and there are n nodes.
@@ -233,6 +244,7 @@ public class Tree {
         // return the min of those values.
         return Math.min(Math.min(left, right), root.value);
     }
+
 
     /**
      *  O(log n) because we get rid of half the tree's node each pass we make in the loop since we're only trying to
@@ -260,11 +272,40 @@ public class Tree {
         return last.value;
     }
 
+
     /**
      * @param node is the input node we're checking to see if it is a leaf node.
      * @return returns a boolean value conveying if the node is a leaf or not.
      */
     private boolean isLeaf(Node node){
         return node.leftChild == null && node.rightChild == null;
+    }
+
+
+    public boolean equals(Tree other){
+        // check if other is null.
+        if (other == null){
+            return false;
+        }
+        // returns if both this tree and the other are equal.
+        return equals(root, other.root);
+    }
+
+
+    private boolean equals(Node first, Node second){
+        // Check if both nodes are leaves
+        if (first == null && second == null){
+            return true;
+        }
+
+        // Check if both nodes are not null
+        if (first != null && second != null){
+            // if they both aren't null, then check if their roots, left subtrees, and right subtrees match.
+            return first.value == second.value && equals(first.leftChild, second.leftChild)
+                    && equals(first.rightChild, second.rightChild);
+        }
+
+        // Otherwise, we return false.
+        return false;
     }
 }
