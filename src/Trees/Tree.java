@@ -308,4 +308,23 @@ public class Tree {
         // Otherwise, we return false.
         return false;
     }
+
+    public boolean isValidBST(){
+        return isValidBST(root);
+    }
+
+    private boolean isValidBST(Node node) {
+        boolean leftValid = false;
+        boolean rightValid = false;
+        if (node == null || node.leftChild == null && node.rightChild == null){
+            return true;
+        }
+        if (node.leftChild != null && node.leftChild.value < node.value){
+            leftValid = isValidBST(node.leftChild);
+        }
+        if (node.rightChild != null && node.rightChild.value > node.value){
+            rightValid = isValidBST(node.rightChild);
+        }
+        return leftValid && rightValid;
+    }
 }
