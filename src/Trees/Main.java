@@ -49,6 +49,11 @@ public class Main {
         Tree tree3 = new Tree();
         System.out.println("\nEquality of tree and tree2 is: " + tree3.equals(tree));
 
+//        Tree notValidTree = new Tree();
+
+        System.out.println("\nThis Binary Search Tree is valid: " + tree.isValidBST());
+//        System.out.println(testBST.isValidBST());
+
     }
 
 }
