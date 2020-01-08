@@ -310,20 +310,22 @@ public class Tree {
     }
 
     public boolean isValidBST(){
-        return isValidBST(root);
+        return isValidBST(root, null, null);
     }
 
-    private boolean isValidBST(Node node) {
+    private boolean isValidBST(Node root, Integer lower, Integer upper) {
+        // We need to keep track of both upper and lower bounds for each node while traversing
+        // the tree, and compare the node value not with children values but with these limits.
         boolean leftValid = false;
         boolean rightValid = false;
-        if (node == null || node.leftChild == null && node.rightChild == null){
+        if (root == null || root.leftChild == null && root.rightChild == null){
             return true;
         }
-        if (node.leftChild != null && node.leftChild.value < node.value){
-            leftValid = isValidBST(node.leftChild);
+        if (root.leftChild != null && root.leftChild.value < root.value){
+            leftValid = isValidBST(root.leftChild, lower, root.value);
         }
-        if (node.rightChild != null && node.rightChild.value > node.value){
-            rightValid = isValidBST(node.rightChild);
+        if (root.rightChild != null && root.rightChild.value > root.value){
+            rightValid = isValidBST(root.rightChild, root.value, upper);
         }
         return leftValid && rightValid;
     }
