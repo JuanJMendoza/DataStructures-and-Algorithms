@@ -52,6 +52,10 @@ public class Main {
 //        Tree notValidTree = new Tree();
 
         System.out.println("\nThis Binary Search Tree is valid: " + tree.isValidBST());
+
+        tree.swapRoot();
+        System.out.println("\nThis Binary Search Tree is valid: " + tree.isValidBST());
+
 //        System.out.println(testBST.isValidBST());
 
     }
