@@ -314,19 +314,26 @@ public class Tree {
     }
 
     private boolean isValidBST(Node root, Integer lower, Integer upper) {
+        // if root is null then it is a valid null binary tree.
+        if (root == null) return true;
+
         // We need to keep track of both upper and lower bounds for each node while traversing
         // the tree, and compare the node value not with children values but with these limits.
-        boolean leftValid = false;
-        boolean rightValid = false;
-        if (root == null || root.leftChild == null && root.rightChild == null){
-            return true;
-        }
-        if (root.leftChild != null && root.leftChild.value < root.value){
-            leftValid = isValidBST(root.leftChild, lower, root.value);
-        }
-        if (root.rightChild != null && root.rightChild.value > root.value){
-            rightValid = isValidBST(root.rightChild, root.value, upper);
-        }
-        return leftValid && rightValid;
+        int val = root.value;
+
+        // we need to make sure if lower or upper bounds aren't null, to check if current value
+        // is within the correct bounds - if not we return false.
+        if (lower != null && val <= lower) return false;
+        if (upper != null && val >= upper) return false;
+
+        // otherwise we update our upper and lower bounds so while we traverse down the tree,
+        // we can assure the subtrees and their nodes are within the correct bounds for each subtree.
+        // if any of the recursive calls return false, then we propagate the falses up the call stack
+        // by negating the false return values and continue to return false.
+        if (!isValidBST(root.leftChild, lower, val)) return false;
+        if (!isValidBST(root.rightChild, val, upper)) return false;
+
+
+        return true;
     }
 }
