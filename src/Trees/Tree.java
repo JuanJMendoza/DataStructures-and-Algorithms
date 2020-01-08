@@ -336,4 +336,11 @@ public class Tree {
 
         return true;
     }
+
+    public void swapRoot(){
+        var temp = root;
+        var left = root.leftChild;
+        root = left;
+        root.leftChild = temp;
+    }
 }
