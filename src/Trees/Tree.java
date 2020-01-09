@@ -1,5 +1,7 @@
 package Trees;
 
+import java.util.ArrayList;
+
 public class Tree {
     ///////////////////
     /// Node Class ///
@@ -357,5 +359,31 @@ public class Tree {
         var left = root.leftChild;
         root = left;
         root.leftChild = temp;
+    }
+
+    public ArrayList<Integer> getNodesAtDistance(int distance){
+        ArrayList<Integer> list = new ArrayList<>();
+        getNodesAtDistance(root, distance, list);
+        return list;
+    }
+
+    private void getNodesAtDistance(Node node, int distance, ArrayList<Integer> list){
+        // Base Case: if the current node is null we just "return" to quit the function.
+        if (node == null) {
+            return;
+        }
+
+        // Base Case: if we reach the designated distance in the tree (distance = 0) we add the
+        //            the current node's value into the list.
+        if (distance == 0) {
+            list.add(node.value);
+            return;
+        }
+
+        // Otherwise we want to continue traversing down the tree & decrement the distance the
+        // closer we get to the desired distance.
+        getNodesAtDistance(node.leftChild, distance -1, list);
+        getNodesAtDistance(node.rightChild, distance - 1, list);
+        return;
     }
 }
