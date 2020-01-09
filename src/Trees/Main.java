@@ -1,7 +1,7 @@
 package Trees;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Tree tree = new Tree();
         tree.insert(13);
         tree.insert(3);
@@ -56,8 +56,24 @@ public class Main {
         tree.swapRoot();
         System.out.println("\nThis Binary Search Tree is valid: " + tree.isValidBST());
 
-//        System.out.println(testBST.isValidBST());
+//        var list = tree2.getNodesAtDistance(2);
+//        for (var item : list) {
+//            System.out.println(item);
+//        }
 
+        Tree tree4 = new Tree();
+        tree4.insert(21);
+        tree4.insert(13);
+        tree4.insert(25);
+        tree4.insert(5);
+        tree4.insert(14);
+        tree4.insert(27);
+        tree4.insert(1);
+
+        var list2 = tree4.getNodesAtDistance(2);
+
+        for (var item: list2){
+            System.out.println(item);
+        }
     }
-
 }
