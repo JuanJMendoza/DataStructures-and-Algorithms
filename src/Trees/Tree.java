@@ -309,10 +309,20 @@ public class Tree {
         return false;
     }
 
+    /**
+     * @return returns a boolean value - true if the tree is a valid BST, otherwise returns false.
+     */
     public boolean isValidBST(){
         return isValidBST(root, null, null);
     }
 
+    /**
+     *
+     * @param root is the current node we are in.
+     * @param lower is the lower bound that the current node's value is allowed to be.
+     * @param upper is the upper bound that the current node;s value is allowed to be.
+     * @return returns a boolean value - true if the tree is a valid BST, otherwise returns false.
+     */
     private boolean isValidBST(Node root, Integer lower, Integer upper) {
         // if root is null then it is a valid null binary tree.
         if (root == null) return true;
@@ -337,6 +347,11 @@ public class Tree {
         return true;
     }
 
+    /**
+     * This method is used to test the method that tests whether this tree is a valid BST.
+     *
+     * swapRoot swaps the root with its left child, and vice versa.
+     */
     public void swapRoot(){
         var temp = root;
         var left = root.leftChild;
