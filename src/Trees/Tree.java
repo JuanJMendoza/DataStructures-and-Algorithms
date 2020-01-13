@@ -463,9 +463,18 @@ public class Tree {
     }
 
 
+    /**
+     * @return Returns the maximum value in a BST using recursion.
+     */
     public int max(){
         return max(root);
     }
+
+
+    /**
+     * @param node the node we are traversing down from.
+     * @return Returns the maximum value in a BST using recursion.
+     */
     private int max(Node node){
         // Base case 1: If node is null, return 0.
         if (node == null) {
