@@ -410,4 +410,16 @@ public class Tree {
         getNodesAtDistance(node.rightChild, distance - 1, list);
         return;
     }
+
+
+    /**
+     * Prints out nodes level by level starting from the root.
+     */
+    public void levelOrderTraversal(){
+        for(int i = 0; i <= height(); i++){
+            for (var node : getNodesAtDistance(i)){
+                System.out.println(node);
+            }
+        }
+    }
 }
