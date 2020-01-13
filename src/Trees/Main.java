@@ -85,6 +85,7 @@ public class Main {
         System.out.println("\nThis tree has " + tree4.countLeaves() +" leaves.");
 
         System.out.println("\nThe max value of this tree is: " + tree.max());
-        int num = tree.max();
+
+        System.out.println("\nDoes this tree contain the number " + 1 + "? " + tree.contains(1));
     }
 }
