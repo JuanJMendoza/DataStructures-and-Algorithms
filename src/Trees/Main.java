@@ -75,5 +75,8 @@ public class Main {
         for (var item: list2){
             System.out.println(item);
         }
+
+        System.out.println("\nLevel Order Traversal: ");
+        tree4.levelOrderTraversal();
     }
 }
