@@ -196,12 +196,21 @@ public class Tree {
     }
 
 
+    /**
+     *  height returns the number of edges in the longest path from leaf to root.
+     * @return returns an int value which conveys the height of the tree.
+     */
     public int height(){
         // call to private recursive method.
         return height(root);
     }
 
 
+    /**
+     * height returns the number of edges in the longest path from leaf to root.
+     * @param root is the node we're traversing from as we're counting down from this particular node.
+     * @return returns an int value which conveys the height of the tree.
+     */
     private int height(Node root){
         // Base case 1: if root is null return -1.
         if (root == null) {
@@ -283,7 +292,11 @@ public class Tree {
         return node.leftChild == null && node.rightChild == null;
     }
 
-
+    /**
+     *  equals checks if two binary trees are the same.
+     * @param other is the binary tree we're comparing with.
+     * @return returns a boolean value convey if the trees are the same or not.
+     */
     public boolean equals(Tree other){
         // check if other is null.
         if (other == null){
@@ -361,12 +374,23 @@ public class Tree {
         root.leftChild = temp;
     }
 
+    /**
+     *
+     * @param distance is the distance, measeured in nodes away from the root.
+     * @return returns an arraylist with values of nodes that are 'distance' nodes away from the root.
+     */
     public ArrayList<Integer> getNodesAtDistance(int distance){
         ArrayList<Integer> list = new ArrayList<>();
         getNodesAtDistance(root, distance, list);
         return list;
     }
 
+    /**
+     *  getNodesAtDistance
+     * @param node is the particular node we're traversing from when trying to see how far we're from our desired nodes.
+     * @param distance is the distance, measeured in nodes away from 'node'.
+     * @param list is the arraylist we're propagating back to the calling function which is accumulating the nodes.
+     */
     private void getNodesAtDistance(Node node, int distance, ArrayList<Integer> list){
         // Base Case: if the current node is null we just "return" to quit the function.
         if (node == null) {
