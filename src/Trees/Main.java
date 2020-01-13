@@ -53,7 +53,7 @@ public class Main {
 
         System.out.println("\nThis Binary Search Tree is valid: " + tree.isValidBST());
 
-        tree.swapRoot();
+//        tree.swapRoot();
         System.out.println("\nThis Binary Search Tree is valid: " + tree.isValidBST());
 
 //        var list = tree2.getNodesAtDistance(2);
@@ -83,5 +83,8 @@ public class Main {
         System.out.println("\nThe size of this tree is: " + nullTree.size());
 
         System.out.println("\nThis tree has " + tree4.countLeaves() +" leaves.");
+
+        System.out.println("\nThe max value of this tree is: " + tree.max());
+        int num = tree.max();
     }
 }
