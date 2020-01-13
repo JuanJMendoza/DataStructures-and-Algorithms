@@ -491,4 +491,33 @@ public class Tree {
         // return the max between this node's value and the max of the left and right subtrees of this node.
         return Math.max(Math.max(left, right), node.value);
     }
+
+
+    /**
+     * @param val is the value we're looking for.
+     * @return returns true if the value exists in our tree otherwise returns false.
+     */
+    public boolean contains(int val){
+        return contains(root, val);
+    }
+
+
+    /**
+     * @param node is the node whose value we're checking if its less than, greater than,
+     *            or equal to the value we're looking for.
+     * @param val is the value we're looking for.
+     * @return returns true if the value exists in our tree otherwise returns false.
+     */
+    private boolean contains(Node node, int val){
+        // Base case: If node is null, return false.
+        if(node == null) {
+            return false;
+        }
+        // Base case: If the value matches the value of the current node we're on, return true.
+        if (val == node.value) {
+            return true;
+        }
+        // return the logical or of contains for both left and right subtrees of the current node we're on.
+        return contains(node.leftChild, val) || contains(node.rightChild, val);
+    }
 }
