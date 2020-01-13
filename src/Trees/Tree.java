@@ -455,10 +455,31 @@ public class Tree {
             return 0;
         }
         // checks if current node is a leaf, we return 1 if so.
-        if (node.leftChild == null && node.rightChild == null) {
+        if (isLeaf(node)) {
             return 1;
         }
         // we return, and propagate up to the root, the number of leaves from left and right subtrees.
         return countLeaves(node.leftChild) + countLeaves(node.rightChild);
+    }
+
+
+    public int max(){
+        return max(root);
+    }
+    private int max(Node node){
+        // Base case 1: If node is null, return 0.
+        if (node == null) {
+            return 0;
+        }
+        // Base case 2: If node is a leaf, return the node's value.
+        if (isLeaf(node)){
+            return node.value;
+        }
+        // assign left the max of the left subtree of the current node.
+        var left = max(node.leftChild);
+        // assign right the max of the right subtree of the current node.
+        var right = max(node.rightChild);
+        // return the max between this node's value and the max of the left and right subtrees of this node.
+        return Math.max(Math.max(left, right), node.value);
     }
 }
