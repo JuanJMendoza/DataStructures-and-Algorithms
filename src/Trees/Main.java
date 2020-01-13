@@ -81,5 +81,7 @@ public class Main {
 
         Tree nullTree = new Tree();
         System.out.println("\nThe size of this tree is: " + nullTree.size());
+
+        System.out.println("\nThis tree has " + tree4.countLeaves() +" leaves.");
     }
 }
