@@ -435,4 +435,30 @@ public class Tree {
         }
         return total;
     }
+
+
+    /**
+     * @return returns the number of leaves in the tree.
+     */
+    public int countLeaves(){
+        return countLeaves(root);
+    }
+
+
+    /**
+     * @param node is the current node we're on, its used to check if we're on a leaf or not.
+     * @return returns the accumulated number of leaves we have in the tree.
+     */
+    private int countLeaves(Node node){
+        // checks if current node is null, we return 0.
+        if (node == null){
+            return 0;
+        }
+        // checks if current node is a leaf, we return 1 if so.
+        if (node.leftChild == null && node.rightChild == null) {
+            return 1;
+        }
+        // we return, and propagate up to the root, the number of leaves from left and right subtrees.
+        return countLeaves(node.leftChild) + countLeaves(node.rightChild);
+    }
 }
