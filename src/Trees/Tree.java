@@ -422,4 +422,17 @@ public class Tree {
             }
         }
     }
+
+
+    /**
+     * Size() returns the number of nodes inside the tree.
+     * @return returns an int value representing the number of nodes in the tree.
+     */
+    public int size(){
+        int total = 0;
+        for(int i = 0; i <= height(); i++){
+            total += getNodesAtDistance(i).size();
+        }
+        return total;
+    }
 }
