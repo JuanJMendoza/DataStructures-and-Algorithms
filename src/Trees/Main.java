@@ -78,5 +78,8 @@ public class Main {
 
         System.out.println("\nLevel Order Traversal: ");
         tree4.levelOrderTraversal();
+
+        Tree nullTree = new Tree();
+        System.out.println("\nThe size of this tree is: " + nullTree.size());
     }
 }
