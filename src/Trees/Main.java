@@ -90,5 +90,9 @@ public class Main {
 
         System.out.println("\nAre the numbers " + 5 + " and " + 14 + " siblings? " + tree4.areSiblings(5, 14));
         System.out.println("\nAre the numbers " + 5 + " and " + 100 + " siblings? " + tree4.areSiblings(5, 100));
+
+        System.out.println("\nThe ancestors of the node with the value " + 1 + " are: " + tree4.getAncestors(1));
+        System.out.println("\nThe ancestors of the node with the value " + 100 + " are: " + tree4.getAncestors(100));
+
     }
 }
