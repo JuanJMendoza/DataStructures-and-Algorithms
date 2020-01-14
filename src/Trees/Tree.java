@@ -579,4 +579,41 @@ public class Tree {
     private boolean siblingsExist(Node parent, int left, int right){
         return (parent.leftChild.value == left && parent.rightChild.value == right) || (parent.leftChild.value == right && parent.rightChild.value == left);
     }
+
+
+    /**
+     * A method to return the ancestors of a value in an arraylist<Integer>
+     * @param k is the value where looking for in out tree.
+     * @return returns a list of k's ancestors.
+     */
+    public ArrayList<Integer> getAncestors(int k) {
+        ArrayList<Integer> list = new ArrayList<>();
+        getAncestors(root, list, k);
+        return list;
+    }
+
+
+    /**
+     * A method to return the ancestors of a value in an arraylist<Integer>
+     * @param parent the node we're check to see if its value equals to val.
+     * @param list a list of val's ancestors.
+     * @param val is the value where looking for in out tree.
+     * @return returns a node which is propagated back up the stack.
+     */
+    private Node getAncestors(Node parent, ArrayList<Integer> list, int val){
+        if(parent == null || parent.value == val){
+            return parent;
+        }
+        Node left = getAncestors(parent.leftChild, list, val);
+        if (left != null && left.value == val){
+            list.add(parent.value);
+            return left;
+        }
+        Node right = getAncestors(parent.rightChild, list, val);
+        if (right != null && right.value == val){
+            list.add(parent.value);
+            return right;
+        }
+        return parent;
+    }
 }
