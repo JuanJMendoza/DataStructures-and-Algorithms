@@ -601,19 +601,29 @@ public class Tree {
      * @return returns a node which is propagated back up the stack.
      */
     private Node getAncestors(Node parent, ArrayList<Integer> list, int val){
+        // Base case: if parent is null we've reached the end of a subtree where the value didn't
+        // exist and return it. We also return parent if it does equal to the value we're looking for.
         if(parent == null || parent.value == val){
             return parent;
         }
+        // We traverse down the left subtree and check if we found the value in the left subtree.
         Node left = getAncestors(parent.leftChild, list, val);
+        // if so we add this current node's value to the list and continue propagating the status of
+        // the found value up the call stack.
         if (left != null && left.value == val){
             list.add(parent.value);
             return left;
         }
+        // We traverse down the right subtree and check if we found the value in the right subtree.
         Node right = getAncestors(parent.rightChild, list, val);
+        // if so we add this current node's value to the list and continue propagating the status of
+        // the found value up the call stack.
         if (right != null && right.value == val){
             list.add(parent.value);
             return right;
         }
+        // we return parent as a way to continue propagating back up the call stack if we havent
+        // found the value we're looking for.
         return parent;
     }
 }
