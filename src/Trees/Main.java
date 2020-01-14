@@ -87,5 +87,8 @@ public class Main {
         System.out.println("\nThe max value of this tree is: " + tree.max());
 
         System.out.println("\nDoes this tree contain the number " + 1 + "? " + tree.contains(1));
+
+        System.out.println("\nAre the numbers " + 5 + " and " + 14 + " siblings? " + tree4.areSiblings(5, 14));
+        System.out.println("\nAre the numbers " + 5 + " and " + 100 + " siblings? " + tree4.areSiblings(5, 100));
     }
 }
