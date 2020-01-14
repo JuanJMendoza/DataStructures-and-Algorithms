@@ -520,4 +520,63 @@ public class Tree {
         // return the logical or of contains for both left and right subtrees of the current node we're on.
         return contains(node.leftChild, val) || contains(node.rightChild, val);
     }
+
+
+    /**
+     * A method to check to see if two values are siblings.
+     * @param left int value we're trying to figure out if is a sibling to right.
+     * @param right int value we're trying to figure out if is a sibling to left.
+     * @return return true if left and right share the same parent.
+     */
+    public boolean areSiblings(int left, int right){
+        return areSiblings(root, left, right);
+    }
+
+
+    /**
+     * A method to check to see if two values are siblings.
+     * @param parent current parent node whose children we're checking
+     * @param left int value we're trying to figure out if is a sibling to right.
+     * @param right int value we're trying to figure out if is a sibling to left.
+     * @return return true if left and right share the same parent.
+     */
+    private boolean areSiblings(Node parent, int left, int right){
+        // Base case 1: If parent is null, we have a null tree and we return false.
+        if (parent == null){ return false;}
+        // Base case 2: If parent is a leaf, we return false since we've reached the end of a subtree
+        // and know the siblings cannot exist here.
+        if (isLeaf(parent)){return false;}
+        // Base case 3: If parent's left & right child aren't null, we check if they equal to the values
+        // we're looking to see if they're siblings.
+        if (parent.leftChild != null && parent.rightChild != null){
+            // If both children equal to the values we're looking to see if they're siblings,
+            // we return true.
+            if (siblingsExist(parent, left, right)){
+                return true;
+            }
+        }
+        // Assign a variable existsLeft the return value of this function on parent's left child, left, right.
+        // In other words, we continue to traverse down the left subtree and run this function on the left subtree
+        // of this parent node.
+        boolean existsLeft = areSiblings(parent.leftChild, left, right);
+        // Assign a variable existsRight the return value of this function on parent's right child, left, right.
+        // In other words, we continue to traverse down the right subtree and run this function on the right subtree
+        // of this parent node.
+        boolean existsRight = areSiblings(parent.rightChild, left, right);
+        // We propagate the logical or of both values all the way up to the root where we finally return the logical
+        // or between the root's subtrees.
+        return existsLeft || existsRight;
+    }
+
+
+    /**
+     *  A method to check of infact left and right are siblings and share the same parent.
+     * @param parent current parent node whose children we're checking
+     * @param left int value we're trying to figure out if is a sibling to right.
+     * @param right int value we're trying to figure out if is a sibling to left.
+     * @return return true if left and right share the same parent.
+     */
+    private boolean siblingsExist(Node parent, int left, int right){
+        return (parent.leftChild.value == left && parent.rightChild.value == right) || (parent.leftChild.value == right && parent.rightChild.value == left);
+    }
 }
