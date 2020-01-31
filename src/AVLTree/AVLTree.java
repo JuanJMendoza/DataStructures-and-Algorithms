@@ -9,30 +9,30 @@ public class AVLTree {
         public Node(int value){
             this.value = value;
         }
+
+        @Override
+        public String toString(){
+            return "Value=" + this.value;
+        }
+
     }
 
     private Node root;
 
     public void insert(int value){
-        Node node = new Node(value);
-        insert(root, node);
+        root = insert(root, value);
     }
 
-    private void insert(Node root, Node node){
-        if(node.value < root.value && root.leftChild == null){
-            root.leftChild = node;
-            return;
+    private Node insert(Node root, int value){
+        if(root == null){ // base case: if root s
+            return new Node(value);
         }
-        else if(node.value > root.value && root.rightChild == null){
-            root.rightChild = node;
-            return;
+        if(value < root.value){
+            root.leftChild  = insert(root.leftChild, value);
         }
-        if(node.value < root.value){
-            insert(root.leftChild, node);
+        else if(value > root.value){
+            root.rightChild = insert(root.rightChild, value);
         }
-        else if(node.value > root.rightChild.value){
-            insert(root.rightChild, node);
-        }
-        return;
+        return root;
     }
 }
