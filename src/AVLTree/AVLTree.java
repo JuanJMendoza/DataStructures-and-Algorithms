@@ -5,6 +5,8 @@ public class AVLTree {
         private int value;
         private Node leftChild;
         private Node rightChild;
+        // private height field for node class to hold its height in the tree.
+        private int height;
 
         public Node(int value){
             this.value = value;
@@ -33,6 +35,15 @@ public class AVLTree {
         else if(value > root.value){
             root.rightChild = insert(root.rightChild, value);
         }
+        // set the current node's height.
+        root.height = Math.max(height(root.leftChild), height(root.rightChild)) + 1;
         return root;
     }
+
+    private int height(Node node){
+        return (node == null) ? -1 : node.height;
+    }
+
+
+
 }
