@@ -38,14 +38,25 @@ public class AVLTree {
         // set the current node's height.
         root.height = Math.max(height(root.leftChild), height(root.rightChild)) + 1;
 
+        balance(root);
+
+        return root;
+    }
+
+    private void balance(Node root){
         //Figuring out if the current node is a balanced subtree.
         if(isLeftHeavy(root)){
-            System.out.println(root.value + " is left heavy.");
+            if(balanceFactor(root.leftChild) < 0){
+                System.out.println("Left Rotate " + root.leftChild.value);
+            }
+            System.out.println("Right Rotate " + root.value);
         }
         else if(isRightHeavy(root)){
-            System.out.println(root.value + " is right heavy.");
+            if(balanceFactor(root.rightChild) > 0){
+                System.out.println("Right Rotate " + root.rightChild.value);
+            }
+            System.out.println("Left Rotate " + root.value);
         }
-        return root;
     }
 
     private boolean isLeftHeavy(Node node){
