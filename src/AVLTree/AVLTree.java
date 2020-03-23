@@ -36,29 +36,63 @@ public class AVLTree {
             root.rightChild = insert(root.rightChild, value);
         }
         // set the current node's height.
-        root.height = Math.max(height(root.leftChild), height(root.rightChild)) + 1;
+        setHeight(root);
 
-        balance(root);
+        root = balance(root);
 
         return root;
     }
 
-    private void balance(Node root){
+    private Node balance(Node root){
         //Figuring out if the current node is a balanced subtree.
         if(isLeftHeavy(root)){
             if(balanceFactor(root.leftChild) < 0){
-                System.out.println("Left Rotate " + root.leftChild.value);
+                root.leftChild = rotateLeft(root.leftChild);
             }
-            System.out.println("Right Rotate " + root.value);
+            return rotateRight(root);
         }
         else if(isRightHeavy(root)){
             if(balanceFactor(root.rightChild) > 0){
-                System.out.println("Right Rotate " + root.rightChild.value);
+                root.rightChild = rotateRight(root.rightChild);
             }
-            System.out.println("Left Rotate " + root.value);
+            return rotateLeft(root);
         }
+        //if we get here then out root is balanced.
+        return root;
     }
 
+    private Node rotateLeft(Node root){
+        //make current root's right child the new root.
+        Node newRoot = root.rightChild;
+        //take the new root's left child's the right child of the old root.
+        root.rightChild = newRoot.leftChild;
+        //make the new root's left child the old root.
+        newRoot.leftChild = root;
+
+        setHeight(root);
+        setHeight(newRoot);
+
+        return newRoot;
+    }
+
+    private Node rotateRight(Node root){
+        //make current root's right child the new root.
+        Node newRoot = root.leftChild;
+        //take the new root's left child's the right child of the old root.
+        root.leftChild = newRoot.rightChild;
+        //make the new root's left child the old root.
+        newRoot.rightChild = root;
+
+        setHeight(root);
+        setHeight(newRoot);
+
+        return newRoot;
+    }
+
+    private void setHeight(Node node){
+        node.height = Math.max(height(node.leftChild), height(node.rightChild)) + 1;
+
+    }
     private boolean isLeftHeavy(Node node){
         return balanceFactor(node) > 1;
     }
